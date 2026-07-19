@@ -2,8 +2,44 @@
 
 > Repositorio de estudio estructurado para el ecosistema Cisco.  
 > Taxonomía de comandos · Arquitectura de modos · Principios End-to-End.
+> Guia de Comandos Completa · Básico a Avanzado · 200 - 301 ·  600 - 801 · 
+> Calculadora de Redes 
 
 ---
+## ◻ COMANDOS OFICIALES COMPLETOS
+
+- [01 · CCNA 200 - 301]
+(#)
+Su contenido está organizado en capítulos que cubren desde configuraciones 
+básicas hasta características avanzadas de seguridad y enrutamiento. 
+
+#Infraestructura de Switching: 
+Detalla la creación de VLANs estáticas, Voice VLANs, y el uso de VLAN Trunking Protocol (VTP). 
+Cubre exhaustivamente el Spanning Tree Protocol (STP) en sus diversas variantes 
+(PVST+, Rapid PVST+, MSTP) y EtherChannel (LACP/PAgP) para agregación de enlaces.  
+
+#Enrutamiento e Inter-VLAN: 
+Describe la comunicación entre VLANs mediante Router-on-a-stick y SVI en switches multicapa. 
+Incluye configuraciones de enrutamiento estático (IPv4 e IPv6) y OSPFv2.  
+
+#Servicios y Gestión: 
+Incluye guías para la configuración de DHCP, Network Address Translation (NAT/PAT), 
+y Network Time Protocol (NTP).  
+
+#Seguridad: 
+Proporciona procedimientos para el endurecimiento de dispositivos (device hardening), 
+configuración de SSH, Port Security (incluyendo Sticky MAC), 
+DHCP Snooping y Dynamic ARP Inspection (DAI).  
+
+#Listas de Control de Acceso (ACLs): 
+Documenta la creación, aplicación y gestión de ACLs estándar, extendidas y nombradas 
+tanto para IPv4 como para IPv6.  
+
+#Protocolos de Descubrimiento: 
+Explica la configuración y verificación de CDP y LLDP.  
+
+- [02 · Los Dos Entornos de Operación](#02--los-dos-entornos-de-operación)
+- [03 · Máquina de Estados del CLI de Cisco](#03--máquina-de-estados-del-cli-de-cisco)
 
 ## ◻ ÍNDICE
 
