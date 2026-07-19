@@ -1,0 +1,105 @@
+================================================================================
+ PLANTILLA DE CONFIGURACION INICIAL — CISCO IOS
+ Aplicable a: Routers y Switches Cisco (Packet Tracer / Dispositivos fisicos)
+================================================================================
+ INSTRUCCIONES:
+  1. Conectate al dispositivo via consola o terminal.
+  2. Copia y pega el bloque completo en la CLI del dispositivo.
+  3. Asegurate de seleccionar hasta la linea en blanco posterior
+     al ultimo comando, de modo que se ejecute automaticamente.
+================================================================================
+
+--------------------------------------------------------------------------------
+ BLOQUE 1: ESCALADA DE PRIVILEGIOS Y ENTRADA A MODO DE CONFIGURACION GLOBAL
+--------------------------------------------------------------------------------
+
+Device> enable
+Device# configure terminal
+
+--------------------------------------------------------------------------------
+ BLOQUE 2: CONFIGURACION BASICA DEL DISPOSITIVO
+--------------------------------------------------------------------------------
+
+ [Reemplaza <NOMBRE_DISPOSITIVO> con el hostname deseado, ej. R1, SW_CORE]
+
+Device(config)# hostname <NOMBRE_DISPOSITIVO>
+
+--------------------------------------------------------------------------------
+ BLOQUE 3: OPTIMIZACION DEL ENTORNO TERMINAL
+--------------------------------------------------------------------------------
+
+ -- Deshabilita la resolucion DNS para evitar bloqueos por errores de tipeo --
+Device(config)# no ip domain-lookup
+
+ -- Asegura que CDP (Cisco Discovery Protocol) este activo --
+Device(config)# cdp run
+
+--------------------------------------------------------------------------------
+ BLOQUE 4: CONFIGURACION DE LA LINEA DE CONSOLA (console 0)
+--------------------------------------------------------------------------------
+
+Device(config)# line console 0
+
+ -- Sincroniza mensajes del sistema con la entrada del usuario --
+Device(config-line)# logging synchronous
+
+ -- Historial de 50 comandos ejecutados (verificar con: show history) --
+Device(config-line)# history size 50
+
+ -- Tiempo de inactividad antes de cerrar sesion automaticamente --
+ -- Formato: exec-timeout [minutos] [segundos] --
+Device(config-line)# exec-timeout 25 0
+
+Device(config-line)# end
+
+--------------------------------------------------------------------------------
+ BLOQUE 5: PERSISTENCIA DE LA CONFIGURACION EN NVRAM
+--------------------------------------------------------------------------------
+
+ CRITICO: Este comando guarda los cambios en memoria no volatil.
+          Sin el, todos los cambios se pierden al reiniciar el dispositivo.
+
+Device# copy running-config startup-config
+
+================================================================================
+ BLOQUE PARA COPIAR Y PEGAR (COMANDOS ABREVIADOS — LISTOS PARA USO)
+ Selecciona desde "ena" hasta la linea en blanco despues de "copy run start"
+================================================================================
+
+ena
+conf t
+no ip domain-lookup
+cdp run
+line con 0
+logging syn
+his size 50
+exec-timeout 25 0
+end
+copy run start
+
+================================================================================
+ NOTA OPCIONAL: SOPORTE PARA DISPOSITIVOS NO-CISCO (LLDP)
+ Si tu red incluye dispositivos de otros fabricantes, habilita LLDP:
+================================================================================
+
+ Device(config)# lldp run
+
+================================================================================
+ REFERENCIA RAPIDA DE VERIFICACION POST-CONFIGURACION
+================================================================================
+
+ Verificar configuracion activa (RAM):
+   Device# show running-config
+
+ Verificar configuracion guardada (NVRAM):
+   Device# show startup-config
+
+ Verificar estado de interfaces:
+   Device# show ip interface brief
+
+ Verificar historial de comandos:
+   Device# show history
+
+================================================================================
+ FIN DE PLANTILLA
+================================================================================
